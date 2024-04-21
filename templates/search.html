@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/static/styles/style.css" rel="stylesheet" />
+    <title>Python Job Scraper</title>
+  </head>
+  <body>
+    <div id="result">
+      <h1>👀 Search results for "{{keyword}}":</h1>
+      <a href="/export?keyword={{keyword}}" target="_blank">Export</a>
+    </div>
+
+    <div id="table">
+      <table>
+        <thead>
+          <tr>
+            <th>👩‍💻 Title</th>
+            <th>🏢 Company</th>
+            <th>🔗 Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs %}
+          <tr>
+            <td>{{job.title}}</td>
+            <td>{{job.company}}</td>
+            <td>
+              <a href="{{job.link}}" target="_blank">👉 Apply Here! 👈</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
